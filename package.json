@@ -1,0 +1,19 @@
+{
+  "name": "codetest",
+  "version": "1.0.0",
+  "description": "Hometrack codetest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noejon/codetest.git"
+  },
+  "author": "Jonathan Noe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noejon/codetest/issues"
+  },
+  "homepage": "https://github.com/noejon/codetest#readme"
+}

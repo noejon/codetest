@@ -21,7 +21,7 @@ class Address {
       this._buildingNumber = params.buildingNumber;
       this._lat = params.buildingNumber;
       this._lon = params.buildingNumber;
-      this._postcode = params.buildingNumber;
+      this._postcode = params.postcode;
       this._state = params.state;
       this._street = params.street;
       this._suburb = params.suburb;
@@ -29,11 +29,12 @@ class Address {
     }
 
     concat() {
-      return (this._buildingNumber || "")
-        + (this._street || "")
-        + (this._suburb || "")
-        + (this._state || "") 
-        + (this._postcode || "") 
+      return (((this._buildingNumber && this._buildingNumber + " ") || "")
+        + ((this._street && this._street + " ") || "")
+        + ((this._suburb && this._suburb + " ") || "")
+        + ((this._state && this._state + " ") || "") 
+        + ((this._postcode && this._postcode + " ") || ""))
+        .trim();
     }
 }
 

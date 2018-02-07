@@ -24,9 +24,15 @@ describe('Address', () => {
         const address = new Address();
         assert.equal(address.concat(), "");
     });
-    it('should return "6 Victoria park parade 2017 Zetland NSW"', () => {
-        const address = new Address({});
-        assert.equal(address.concat(), "");
+    it('should return "6 Victoria park parade Zetland NSW 2017"', () => {
+        const address = new Address({
+          buildingNumber: '6',
+          postcode: '2017',
+          state: 'NSW',
+          street: 'Victoria park parade',
+          suburb: 'Zetland'
+        });
+        assert.equal(address.concat(), '6 Victoria park parade Zetland NSW 2017');
     });
   });
 });

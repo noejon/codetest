@@ -17,6 +17,7 @@ class Address {
     get unitNumber() { return this._unitNumber; }
 
     constructor(params) {
+        if(!params) return;
       this._buildingNumber = params.buildingNumber;
       this._lat = params.buildingNumber;
       this._lon = params.buildingNumber;

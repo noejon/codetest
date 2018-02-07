@@ -19,6 +19,7 @@ class Property {
     get workflow() { return this._workflow; }
 
     constructor(params){
+        if(!params) return;
       this._address = new Address(params.address);
       this._propertyTypeId = propertyTypeId;
       this._readyState = readyState;

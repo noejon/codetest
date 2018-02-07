@@ -1,5 +1,7 @@
+const Address = require('./address');
+
 class Property {
-    set address(address){ this._address = address; }
+    set address(address){ this._address = new Address(address); }
     get address() { return this._address; }
     set propertyTypeId(propertyTypeId){ this._propertyTypeId = propertyTypeId; }
     get propertyTypeId() { return this._propertyTypeId; }
@@ -15,6 +17,17 @@ class Property {
     get type() { return this._type; }
     set workflow(workflow){ this._workflow = workflow; }
     get workflow() { return this._workflow; }
+
+    constructor(params){
+      this._address = new Address(params.address);
+      this._propertyTypeId = propertyTypeId;
+      this._readyState = readyState;
+      this._reference = reference;
+      this._shortId = shortId;
+      this._status = status;
+      this._type = type;
+      this._workflow = workflow;
+    }
 }
 
 module.exports = Property;

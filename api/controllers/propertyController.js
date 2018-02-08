@@ -1,6 +1,4 @@
 const Property = require('../models/property');
-const Error = require('../models/error');
-
 
 const filter = (payload) => {
   if (!payload || !Array.isArray(payload)) return;
@@ -16,6 +14,7 @@ exports.filterProperties = (payload) => {
     .resolve(payload)
     .then(JSON.parse)
     .then((json) => {
+      return filter(json.payload);
     })
     .catch((error) => {
       return {

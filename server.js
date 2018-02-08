@@ -1,6 +1,10 @@
-var express = require('express'),
+const express = require('express'),
   app = express(),
-  port = process.env.PORT || 3000;
+  port = process.env.PORT || 3000,
+  propertyController = require('./api/controllers/propertyController');
+
+const routes = require('./api/routes/propertyRoutes'); //importing route
+routes(app); //register the route
 
 app.listen(port);
 

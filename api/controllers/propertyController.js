@@ -3,22 +3,15 @@ const Property = require('../models/property');
 const filter = (payload) => {
   if (!payload || !Array.isArray(payload)) return;
   const response = [];
-  for (const property in payload) {
+  for (const object of payload) {
+    const property = new Property(object);
     const filteredProperty = property.filter();
-    if(filteredProperty) response.push(filteredProperty);
+    if (filteredProperty) response.push(filteredProperty);
   }
+  return response;
 }
 
-exports.filterProperties = (payload) => {
-  Promise
-    .resolve(payload)
-    .then(JSON.parse)
-    .then((json) => {
-      return filter(json.payload);
-    })
-    .catch((error) => {
-      return {
-        "error": "Could node decode request: JSON parsing failed"
-      };
-    })
+exports.filterProperties = async (req, res) => {
+  let response = await filter(req.body.payload);
+  res.json(response);
 }

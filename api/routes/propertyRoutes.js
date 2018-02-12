@@ -3,5 +3,5 @@ module.exports = (app) => {
 
   // property routes
   app.route('/filteredProperties')
-    .get(propertyController.filterProperties)
+    .post(propertyController.filterProperties)
 };
